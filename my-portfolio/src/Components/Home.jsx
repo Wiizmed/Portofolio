@@ -15,10 +15,11 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="bg-cover bg-center bg-no-repeat h-screen flex flex-col justify-center items-center text-white"
+      className="relative bg-cover bg-center bg-no-repeat h-screen flex flex-col justify-center items-center text-white"
       style={{ backgroundImage: `url('https://png.pngtree.com/background/20231018/original/pngtree-d-illustration-of-cube-pixel-abstract-background-with-ripple-xrp-logo-picture-image_5595607.jpg')` }}
     >
-      <div className="container mx-auto px-4 text-center">
+      <div className="absolute inset-0 bg-black opacity-50"></div> {/* Transparent overlay */}
+      <div className="relative container mx-auto px-4 text-center">
         <motion.h1
           className="text-5xl font-bold mb-4"
           initial={{ opacity: 0, y: -50 }}
