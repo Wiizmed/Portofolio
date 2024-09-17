@@ -1,19 +1,56 @@
 import React from 'react';
-import Me from "../../src/Me.png"
+import Me from "../../src/Me.png";
+import html2pdf from 'html2pdf.js';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-const Home = () => (
-  <section id="home" className="bg-gray-100 py-12">
-    <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-      <div className="text-center md:text-left">
-        <h1 className="text-4xl font-bold mb-4 text-blue-600">Hi, I'm [Your Name]</h1>
-        <p className="text-lg text-gray-700 mb-6">A passionate web developer specializing in front-end development.</p>
-        <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">Download Resume</button>
+const Home = () => {
+  const handleDownload = () => {
+    const element = document.getElementById('home');
+    html2pdf()
+      .from(element)
+      .save('resume.pdf');
+  };
+
+  return (
+    <section
+      id="home"
+      className="bg-cover bg-center bg-no-repeat h-screen flex flex-col justify-center items-center text-white"
+      style={{ backgroundImage: `url('https://png.pngtree.com/background/20231018/original/pngtree-d-illustration-of-cube-pixel-abstract-background-with-ripple-xrp-logo-picture-image_5595607.jpg')` }}
+    >
+      <div className="container mx-auto px-4 text-center">
+        <motion.h1
+          className="text-5xl font-bold mb-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Hi, I AM LOUIZ MOHAMED
+        </motion.h1>
+        <motion.p
+          className="text-xl mb-6"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          FULL STACK WEB DEVELOPER
+        </motion.p>
+        <motion.div
+          className="flex justify-center space-x-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          <Link
+            to="/resume"
+            className="bg-purple-500 hover:bg-purple-700 text-white py-2 px-4 rounded transition duration-300"
+          >
+            Go to Resume
+          </Link>
+        </motion.div>
       </div>
-      <div className="flex justify-center md:justify-end">
-        <img src={Me} alt="[Your Name]" className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg" />
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Home;

@@ -1,0 +1,15 @@
+.progress-bar-container {
+    width: 100%; /* Full width of the container */
+    background-color: #e5e7eb; /* Tailwind's bg-gray-200 */
+    border-radius: 9999px; /* Tailwind's rounded-full */
+    height: 10px; /* Tailwind's h-2.5 */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+  }
+  
+  
+  .progress-bar {
+    background-color: #EEDF7A; /* Tailwind's bg-purple-500 */
+    height: 10px; /* Tailwind's h-2.5 */
+    border-radius: 9999px; /* Tailwind's rounded-full */
+  }
